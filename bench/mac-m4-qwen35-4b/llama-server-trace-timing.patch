@@ -1,0 +1,372 @@
+diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
+index 89f884e65..b5e2d2e99 100644
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -7,6 +7,7 @@
+ #include "server-decision.h"
+ #include "server-http.h"
+ #include "server-task.h"
++#include "server-trace.h"
+ #include "server-queue.h"
+ #include "server-realtime.h"
+ #include "server-schema.h"
+@@ -1130,6 +1131,7 @@ private:
+     int slots_n_diff = 0; // env: LLAMA_SERVER_SLOTS_N_DIFF
+ 
+     int n_empty_consecutive = 0;
++    int64_t t_trace_sampl_us = 0; // sampling time of the current traced step
+ 
+     std::unique_ptr<server_prompt_cache> prompt_cache;
+ 
+@@ -3526,6 +3528,8 @@ private:
+             if (all_idle) {
+                 SRV_TRC("%s", "all slots are idle\n");
+ 
++                server_trace_get().n_running = 0;
++
+                 metrics_flush_idle();
+ 
+                 return; // skip further processing
+@@ -3587,10 +3591,13 @@ private:
+             llama_set_embeddings(ctx_tgt, slot_batched->need_embd());
+         }
+ 
++        auto & trace = server_trace_get();
+         int32_t off_next = 0;
+         int32_t n_batch = llama_n_batch(ctx_tgt);
+         for (int32_t off = 0; off < batch.size(); off = off_next) {
+             const int32_t n_tokens = std::min(n_batch, batch.size() - off);
++            server_trace_step step;
++            step.t_start_us = ggml_time_us();
+             try {
+                 scoped_timer t(t_decode, n_decode);
+                 // TODO @ngxson : maybe handle n_batch == 1 here instead of inside decode()
+@@ -3600,6 +3607,10 @@ private:
+ #ifdef DEBUG_TIMINGS
+                 llama_synchronize(ctx_tgt);
+ #endif
++                if (trace.enabled) {
++                    llama_synchronize(ctx_tgt); // decode() syncs only when the sub-batch has outputs
++                    step.t_fwd_end_us = ggml_time_us();
++                }
+ 
+                 if (ok) {
+                     // move the head of the batch forward with the number of tokens we just processed
+@@ -3617,6 +3628,11 @@ private:
+                 break; // stop any further processing
+             }
+ 
++            if (trace.enabled) {
++                trace_classify(step, n_tokens, off);
++                t_trace_sampl_us = 0;
++            }
++
+             try {
+                 scoped_timer t(t_post_decode, n_post_decode);
+                 post_decode(n_tokens, off);
+@@ -3625,6 +3641,52 @@ private:
+                 abort_all_slots("post_decode() failed: " + std::string(e.what()));
+                 break; // stop any further processing
+             }
++
++            if (trace.enabled) {
++                std::vector<int> finished;
++                int n_running = 0;
++                for (int id : step.active_ids) {
++                    bool alive = false;
++                    for (auto & slot : slots) {
++                        alive |= slot.is_processing() && slot.task && slot.task->id == id;
++                    }
++                    if (!alive) {
++                        finished.push_back(id);
++                    }
++                }
++                for (auto & slot : slots) {
++                    n_running += slot.is_processing();
++                }
++                trace.n_running = n_running;
++                trace.record(step, ggml_time_us(), t_trace_sampl_us / 1000.0, finished);
++            }
++        }
++    }
++
++    // trace: which tasks prefill, finish their prompt or decode in the sub-batch [off, off + n_tokens)
++    void trace_classify(server_trace_step & step, int32_t n_tokens, int32_t off) {
++        std::vector<bool> prompt(slots.size()), gen(slots.size());
++        for (int32_t i = off; i < off + n_tokens; i++) {
++            const auto & tok = batch.tokens[i];
++            if (tok.id_slot >= 0 && tok.id_slot < (int32_t) slots.size()) {
++                (tok.is_prompt ? prompt : gen)[tok.id_slot] = true;
++            }
++        }
++        for (auto & slot : slots) {
++            if (!slot.is_processing() || !slot.task) {
++                continue;
++            }
++            const int id = slot.task->id;
++            step.active_ids.push_back(id);
++            const bool last_in_view = slot.i_batch >= off && slot.i_batch < off + n_tokens;
++            if (prompt[slot.id]) {
++                step.prefill_ids.push_back(id);
++                if (slot.state == SLOT_STATE_DONE_PROMPT && last_in_view) {
++                    step.done_ids.push_back(id);
++                }
++            } else if (gen[slot.id] && slot.state == SLOT_STATE_GENERATING && last_in_view) {
++                step.decode_ids.push_back(id);
++            }
+         }
+     }
+ 
+@@ -4822,7 +4884,9 @@ private:
+             llama_token id;
+             {
+                 scoped_timer timer(t_sampl, n_sampl);
++                const int64_t t_trace = ggml_time_us();
+                 id = common_sampler_sample(slot.smpl.get(), slot.ctx_tgt, tok_idx);
++                t_trace_sampl_us += ggml_time_us() - t_trace;
+             }
+ 
+             slot.i_batch = -1;
+@@ -4844,7 +4908,11 @@ private:
+ 
+             completion_token_output result;
+             result.tok          = id;
++            const int64_t t_detok = ggml_time_us();
+             result.text_to_send = common_token_to_piece(slot.ctx_tgt, result.tok, accept_special_token(slot, result.tok));
++            if (server_trace_get().enabled) {
++                server_trace_get().add_request_ms(slot.task->id, "detokenize_ms", (ggml_time_us() - t_detok) / 1000.0);
++            }
+             result.prob         = 1.0f; // TODO: set it here instead of doing inside populate_token_probs
+ 
+             if (slot.task->params.sampling.n_probs > 0) {
+@@ -5307,6 +5375,7 @@ std::unique_ptr<server_res_generator> server_routes::handle_completions_impl(
+ 
+         // process prompt
+         std::vector<server_tokens> inputs;
++        const int64_t t_tokenize = ggml_time_us();
+ 
+         if (res_type != TASK_RESPONSE_TYPE_NONE && ctx_server.mctx != nullptr) {
+             // This is the case used by OAI compatible chat path with MTMD. TODO It can be moved to the path below.
+@@ -5351,6 +5420,13 @@ std::unique_ptr<server_res_generator> server_routes::handle_completions_impl(
+             tasks.push_back(std::move(task));
+         }
+ 
++        if (server_trace_get().enabled) {
++            const double ms = (ggml_time_us() - t_tokenize) / 1000.0;
++            for (const auto & task : tasks) {
++                server_trace_get().add_request_ms(task.id, "tokenization_ms", ms);
++            }
++        }
++
+         rd.post_tasks(std::move(tasks), chat_session);
+     } catch (const std::exception & e) {
+         res->error(format_error_response(e.what(), ERROR_TYPE_INVALID_REQUEST));
+diff --git a/tools/server/server-trace.h b/tools/server/server-trace.h
+new file mode 100644
+index 000000000..23a25096b
+--- /dev/null
++++ b/tools/server/server-trace.h
+@@ -0,0 +1,163 @@
++#pragma once
++
++/* Opt-in step timing trace (LLAMA_SERVER_TRACE_TIMING=1), the same records and /debug endpoints as the vLLM-Metal
++   metal_timing plugin, so profile_exact_sweep.py drives both servers unchanged. A step is one synchronized
++   llama_process() call of update_slots() plus the sampling after it. Benchmark instrumentation, not for upstream. */
++
++#include "server-common.h"
++#include "server-http.h"
++
++#include <algorithm>
++#include <atomic>
++#include <chrono>
++#include <cstdlib>
++#include <deque>
++#include <map>
++#include <mutex>
++#include <string>
++#include <unordered_map>
++#include <vector>
++
++struct server_trace_step {
++    int64_t t_start_us = 0;
++    int64_t t_fwd_end_us = 0;
++    std::vector<int> prefill_ids; // tasks with prompt tokens in this step
++    std::vector<int> done_ids;    // tasks whose prompt ends in this step
++    std::vector<int> decode_ids;  // tasks sampled from a generated token
++    std::vector<int> active_ids;  // tasks processing before sampling
++};
++
++struct server_trace {
++    const bool enabled = [] {
++        const char * v = std::getenv("LLAMA_SERVER_TRACE_TIMING");
++        return v != nullptr && std::string(v) == "1";
++    }();
++    std::atomic<int> n_running{0};
++
++    std::mutex mtx;
++    int64_t n_steps = 0;
++    std::deque<json> steps;
++    std::unordered_map<int, double> prefill_ms; // task id -> forward ms summed over its prompt steps
++    std::map<int, json> requests;               // task id -> request timing record
++
++    static std::string req_id(int id) { return "task-" + std::to_string(id); }
++
++    static double wall_s() {
++        return std::chrono::duration<double>(std::chrono::system_clock::now().time_since_epoch()).count();
++    }
++
++    void add_request_ms(int id, const char * key, double ms) {
++        std::lock_guard<std::mutex> lock(mtx);
++        auto it = requests.find(id);
++        if (it == requests.end()) {
++            it = requests.emplace(id, json{{"t", "req"}, {"rid", req_id(id)}, {"request_id", req_id(id)},
++                                           {"ts", wall_s()}, {"timing", json::object()}}).first;
++            while (requests.size() > 100000) {
++                requests.erase(requests.begin());
++            }
++        }
++        json & timing = it->second["timing"];
++        timing[key] = timing.value(key, 0.0) + ms;
++    }
++
++    void record(const server_trace_step & s, int64_t t_end_us, double sampling_ms, const std::vector<int> & finished) {
++        const double forward_ms = (s.t_fwd_end_us - s.t_start_us) / 1000.0;
++        const double ts_last    = wall_s();
++        std::lock_guard<std::mutex> lock(mtx);
++        json prefills = json::array();
++        for (int id : s.prefill_ids) {
++            prefill_ms[id] += forward_ms;
++        }
++        for (int id : s.done_ids) {
++            prefills.push_back({{"req_id", req_id(id)}, {"ms", prefill_ms[id]}, {"sampling_ms", sampling_ms}});
++            prefill_ms.erase(id);
++        }
++        json reqs = json::array();
++        for (int id : s.decode_ids) {
++            reqs.push_back(req_id(id));
++        }
++        json done = json::array();
++        for (int id : finished) {
++            done.push_back(req_id(id));
++        }
++        const bool decoded = !s.decode_ids.empty();
++        const int64_t step_id = ++n_steps;
++        steps.push_back({
++            {"t", "step"}, {"step_id", step_id}, {"step_id_first", step_id}, {"step_id_last", step_id},
++            {"mono_ns_first", s.t_start_us * 1000}, {"mono_ns_last", t_end_us * 1000},
++            {"ts_first", ts_last - (t_end_us - s.t_start_us) / 1e6}, {"ts_last", ts_last},
++            {"prefills", prefills},
++            {"decode", {
++                {"reqs", reqs},
++                {"tokens", (int) s.decode_ids.size()},
++                {"forward_ms_samples", decoded ? json::array({forward_ms}) : json::array()},
++                {"sampling_ms_samples", decoded ? json::array({sampling_ms}) : json::array()},
++            }},
++            {"finished", done},
++        });
++        while (steps.size() > 100000) {
++            steps.pop_front();
++        }
++    }
++
++    static json page(const std::vector<json> & records, const server_http_req & req, const char * key) {
++        const size_t offset = std::stoul(req.get_param("cursor", "0"));
++        const size_t limit  = std::max<size_t>(1, std::min<size_t>(std::stoul(req.get_param("limit", "1000")), 1000));
++        const size_t end    = std::min(records.size(), offset + limit);
++        json out = json::array();
++        for (size_t i = std::min(offset, records.size()); i < end; i++) {
++            out.push_back(records[i]);
++        }
++        const bool more = end < records.size();
++        return {{key, out}, {"next_cursor", more ? json(std::to_string(end)) : json(nullptr)}, {"truncated", more}};
++    }
++
++    json steps_page(const server_http_req & req) {
++        const int64_t after   = std::stoll(req.get_param("after_step_id", "-1"));
++        const int64_t through = std::stoll(req.get_param("through_step_id", "-1"));
++        std::vector<json> records;
++        {
++            std::lock_guard<std::mutex> lock(mtx);
++            for (const auto & s : steps) {
++                const int64_t id = s.at("step_id").get<int64_t>();
++                if (id > after && (through < 0 || id <= through)) {
++                    records.push_back(s);
++                }
++            }
++        }
++        if (req.get_param("order", "asc") == "desc") {
++            std::reverse(records.begin(), records.end());
++        }
++        return page(records, req, "records");
++    }
++
++    json requests_page(const server_http_req & req) {
++        const double since = std::stod(req.get_param("since", "-1"));
++        const double until = std::stod(req.get_param("until", "1e300"));
++        std::vector<json> records;
++        {
++            std::lock_guard<std::mutex> lock(mtx);
++            for (const auto & [id, r] : requests) {
++                const double ts = r.at("ts").get<double>();
++                if (ts >= since && ts <= until) {
++                    records.push_back(r);
++                }
++            }
++        }
++        // vLLM-Metal pages its records newest first unless order=asc
++        if (req.get_param("order", "latest") == "latest") {
++            std::reverse(records.begin(), records.end());
++        }
++        return page(records, req, "requests");
++    }
++
++    json metrics() {
++        std::lock_guard<std::mutex> lock(mtx);
++        return {{"current", {{"running", n_running.load()}, {"waiting", 0}}}, {"totals", {{"total_steps", n_steps}}}};
++    }
++};
++
++inline server_trace & server_trace_get() {
++    static server_trace trace;
++    return trace;
++}
+diff --git a/tools/server/server.cpp b/tools/server/server.cpp
+index e022355dc..1323fc87a 100644
+--- a/tools/server/server.cpp
++++ b/tools/server/server.cpp
+@@ -5,6 +5,7 @@
+ #include "server-cors-proxy.h"
+ #include "server-stream.h"
+ #include "server-tools.h"
++#include "server-trace.h"
+ 
+ #include "arg.h"
+ #include "build-info.h"
+@@ -175,6 +176,27 @@ static void server_register_routes(server_http_context & ctx_http, server_routes
+     ctx_http.get ("/health",                   ex_wrapper(routes.get_health)); // public endpoint (no API key check)
+     ctx_http.get ("/v1/health",                ex_wrapper(routes.get_health)); // public endpoint (no API key check)
+     ctx_http.get ("/metrics",                  ex_wrapper(routes.get_metrics));
++    {
++        // LLAMA_SERVER_TRACE_TIMING step trace, same endpoints as the vLLM-Metal metal_timing plugin
++        auto trace_json = [](const json & body) {
++            auto res = std::make_unique<server_http_res>();
++            res->data = body.dump();
++            return res;
++        };
++        ctx_http.get("/debug/trace", ex_wrapper([trace_json](const server_http_req &) {
++            const bool on = server_trace_get().enabled;
++            return trace_json({{"enabled", on}, {"step_samples", on}});
++        }));
++        ctx_http.get("/debug/scheduler_metrics", ex_wrapper([trace_json](const server_http_req &) {
++            return trace_json(server_trace_get().metrics());
++        }));
++        ctx_http.get("/debug/trace/steps", ex_wrapper([trace_json](const server_http_req & req) {
++            return trace_json(server_trace_get().steps_page(req));
++        }));
++        ctx_http.get("/debug/trace/requests", ex_wrapper([trace_json](const server_http_req & req) {
++            return trace_json(server_trace_get().requests_page(req));
++        }));
++    }
+     ctx_http.get ("/props",                    ex_wrapper(routes.get_props));
+     ctx_http.post("/props",                    ex_wrapper(routes.post_props));
+     ctx_http.get ("/models",                   ex_wrapper(routes.get_models));

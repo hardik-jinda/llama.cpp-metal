@@ -1,0 +1,3546 @@
+{
+  "start_step_id": 273,
+  "end_step_id": 402,
+  "steps": [
+    {
+      "t": "step",
+      "step_id": 274,
+      "step_id_first": 274,
+      "step_id_last": 274,
+      "mono_ns_first": 2477166977867000,
+      "mono_ns_last": 2477167608348000,
+      "ts_first": 1795413572.889024,
+      "ts_last": 1795413573.519505,
+      "prefills": [
+        {
+          "req_id": "task-277",
+          "ms": 630.167,
+          "sampling_ms": 0.307
+        },
+        {
+          "req_id": "task-278",
+          "ms": 630.167,
+          "sampling_ms": 0.307
+        }
+      ],
+      "decode": {
+        "reqs": [],
+        "tokens": 0,
+        "forward_ms_samples": [],
+        "sampling_ms_samples": []
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 275,
+      "step_id_first": 275,
+      "step_id_last": 275,
+      "mono_ns_first": 2477167608410000,
+      "mono_ns_last": 2477168318799000,
+      "ts_first": 1795413573.5195642,
+      "ts_last": 1795413574.229953,
+      "prefills": [
+        {
+          "req_id": "task-280",
+          "ms": 709.57,
+          "sampling_ms": 0.811
+        },
+        {
+          "req_id": "task-281",
+          "ms": 709.57,
+          "sampling_ms": 0.811
+        }
+      ],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278"
+        ],
+        "tokens": 2,
+        "forward_ms_samples": [
+          709.57
+        ],
+        "sampling_ms_samples": [
+          0.811
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 276,
+      "step_id_first": 276,
+      "step_id_last": 276,
+      "mono_ns_first": 2477168318810000,
+      "mono_ns_last": 2477168416983000,
+      "ts_first": 1795413574.229964,
+      "ts_last": 1795413574.328137,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          97.622
+        ],
+        "sampling_ms_samples": [
+          0.548
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 277,
+      "step_id_first": 277,
+      "step_id_last": 277,
+      "mono_ns_first": 2477168416990000,
+      "mono_ns_last": 2477168513820000,
+      "ts_first": 1795413574.328144,
+      "ts_last": 1795413574.424974,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.375
+        ],
+        "sampling_ms_samples": [
+          0.448
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 278,
+      "step_id_first": 278,
+      "step_id_last": 278,
+      "mono_ns_first": 2477168513826000,
+      "mono_ns_last": 2477168610576000,
+      "ts_first": 1795413574.42498,
+      "ts_last": 1795413574.52173,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.31
+        ],
+        "sampling_ms_samples": [
+          0.435
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 279,
+      "step_id_first": 279,
+      "step_id_last": 279,
+      "mono_ns_first": 2477168610580000,
+      "mono_ns_last": 2477168707204000,
+      "ts_first": 1795413574.521734,
+      "ts_last": 1795413574.618358,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.188
+        ],
+        "sampling_ms_samples": [
+          0.43
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 280,
+      "step_id_first": 280,
+      "step_id_last": 280,
+      "mono_ns_first": 2477168707211000,
+      "mono_ns_last": 2477168803869000,
+      "ts_first": 1795413574.618365,
+      "ts_last": 1795413574.715023,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.217
+        ],
+        "sampling_ms_samples": [
+          0.436
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 281,
+      "step_id_first": 281,
+      "step_id_last": 281,
+      "mono_ns_first": 2477168803872000,
+      "mono_ns_last": 2477168900634000,
+      "ts_first": 1795413574.7150261,
+      "ts_last": 1795413574.811788,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.178
+        ],
+        "sampling_ms_samples": [
+          0.581
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 282,
+      "step_id_first": 282,
+      "step_id_last": 282,
+      "mono_ns_first": 2477168900640000,
+      "mono_ns_last": 2477168997406000,
+      "ts_first": 1795413574.811794,
+      "ts_last": 1795413574.90856,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.325
+        ],
+        "sampling_ms_samples": [
+          0.436
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 283,
+      "step_id_first": 283,
+      "step_id_last": 283,
+      "mono_ns_first": 2477168997409000,
+      "mono_ns_last": 2477169094132000,
+      "ts_first": 1795413574.908563,
+      "ts_last": 1795413575.005286,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.277
+        ],
+        "sampling_ms_samples": [
+          0.442
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 284,
+      "step_id_first": 284,
+      "step_id_last": 284,
+      "mono_ns_first": 2477169094136000,
+      "mono_ns_last": 2477169191081000,
+      "ts_first": 1795413575.00529,
+      "ts_last": 1795413575.102235,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.505
+        ],
+        "sampling_ms_samples": [
+          0.437
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 285,
+      "step_id_first": 285,
+      "step_id_last": 285,
+      "mono_ns_first": 2477169191085000,
+      "mono_ns_last": 2477169291548000,
+      "ts_first": 1795413575.10224,
+      "ts_last": 1795413575.202703,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          99.972
+        ],
+        "sampling_ms_samples": [
+          0.481
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 286,
+      "step_id_first": 286,
+      "step_id_last": 286,
+      "mono_ns_first": 2477169291565000,
+      "mono_ns_last": 2477169390387000,
+      "ts_first": 1795413575.20272,
+      "ts_last": 1795413575.301542,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          98.346
+        ],
+        "sampling_ms_samples": [
+          0.467
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 287,
+      "step_id_first": 287,
+      "step_id_last": 287,
+      "mono_ns_first": 2477169390401000,
+      "mono_ns_last": 2477169489087000,
+      "ts_first": 1795413575.301555,
+      "ts_last": 1795413575.400241,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          98.206
+        ],
+        "sampling_ms_samples": [
+          0.468
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 288,
+      "step_id_first": 288,
+      "step_id_last": 288,
+      "mono_ns_first": 2477169489103000,
+      "mono_ns_last": 2477169588631000,
+      "ts_first": 1795413575.4002569,
+      "ts_last": 1795413575.499785,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          98.953
+        ],
+        "sampling_ms_samples": [
+          0.564
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 289,
+      "step_id_first": 289,
+      "step_id_last": 289,
+      "mono_ns_first": 2477169588646000,
+      "mono_ns_last": 2477169689860000,
+      "ts_first": 1795413575.4998,
+      "ts_last": 1795413575.601014,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          100.735
+        ],
+        "sampling_ms_samples": [
+          0.469
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 290,
+      "step_id_first": 290,
+      "step_id_last": 290,
+      "mono_ns_first": 2477169689874000,
+      "mono_ns_last": 2477169795765000,
+      "ts_first": 1795413575.601028,
+      "ts_last": 1795413575.706919,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          105.41
+        ],
+        "sampling_ms_samples": [
+          0.471
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 291,
+      "step_id_first": 291,
+      "step_id_last": 291,
+      "mono_ns_first": 2477169795779000,
+      "mono_ns_last": 2477169899847000,
+      "ts_first": 1795413575.706933,
+      "ts_last": 1795413575.811001,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          103.579
+        ],
+        "sampling_ms_samples": [
+          0.478
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 292,
+      "step_id_first": 292,
+      "step_id_last": 292,
+      "mono_ns_first": 2477169899862000,
+      "mono_ns_last": 2477170008451000,
+      "ts_first": 1795413575.811016,
+      "ts_last": 1795413575.919605,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          108.107
+        ],
+        "sampling_ms_samples": [
+          0.474
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 293,
+      "step_id_first": 293,
+      "step_id_last": 293,
+      "mono_ns_first": 2477170008465000,
+      "mono_ns_last": 2477170107191000,
+      "ts_first": 1795413575.91962,
+      "ts_last": 1795413576.018346,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          98.204
+        ],
+        "sampling_ms_samples": [
+          0.511
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 294,
+      "step_id_first": 294,
+      "step_id_last": 294,
+      "mono_ns_first": 2477170107212000,
+      "mono_ns_last": 2477170203413000,
+      "ts_first": 1795413576.018366,
+      "ts_last": 1795413576.114567,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          95.693
+        ],
+        "sampling_ms_samples": [
+          0.498
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 295,
+      "step_id_first": 295,
+      "step_id_last": 295,
+      "mono_ns_first": 2477170203422000,
+      "mono_ns_last": 2477170299478000,
+      "ts_first": 1795413576.114576,
+      "ts_last": 1795413576.210632,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          95.586
+        ],
+        "sampling_ms_samples": [
+          0.465
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 296,
+      "step_id_first": 296,
+      "step_id_last": 296,
+      "mono_ns_first": 2477170299484000,
+      "mono_ns_last": 2477170396830000,
+      "ts_first": 1795413576.210638,
+      "ts_last": 1795413576.307984,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.869
+        ],
+        "sampling_ms_samples": [
+          0.467
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 297,
+      "step_id_first": 297,
+      "step_id_last": 297,
+      "mono_ns_first": 2477170396845000,
+      "mono_ns_last": 2477170501179000,
+      "ts_first": 1795413576.307999,
+      "ts_last": 1795413576.412333,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          103.859
+        ],
+        "sampling_ms_samples": [
+          0.468
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 298,
+      "step_id_first": 298,
+      "step_id_last": 298,
+      "mono_ns_first": 2477170501190000,
+      "mono_ns_last": 2477170608388000,
+      "ts_first": 1795413576.412344,
+      "ts_last": 1795413576.519542,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          106.712
+        ],
+        "sampling_ms_samples": [
+          0.473
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 299,
+      "step_id_first": 299,
+      "step_id_last": 299,
+      "mono_ns_first": 2477170608403000,
+      "mono_ns_last": 2477170709359000,
+      "ts_first": 1795413576.519557,
+      "ts_last": 1795413576.620513,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          100.486
+        ],
+        "sampling_ms_samples": [
+          0.462
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 300,
+      "step_id_first": 300,
+      "step_id_last": 300,
+      "mono_ns_first": 2477170709369000,
+      "mono_ns_last": 2477170805849000,
+      "ts_first": 1795413576.6205232,
+      "ts_last": 1795413576.717003,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.011
+        ],
+        "sampling_ms_samples": [
+          0.466
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 301,
+      "step_id_first": 301,
+      "step_id_last": 301,
+      "mono_ns_first": 2477170805862000,
+      "mono_ns_last": 2477170902422000,
+      "ts_first": 1795413576.717016,
+      "ts_last": 1795413576.813576,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.103
+        ],
+        "sampling_ms_samples": [
+          0.453
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 302,
+      "step_id_first": 302,
+      "step_id_last": 302,
+      "mono_ns_first": 2477170902429000,
+      "mono_ns_last": 2477171000930000,
+      "ts_first": 1795413576.8135831,
+      "ts_last": 1795413576.912084,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          98.047
+        ],
+        "sampling_ms_samples": [
+          0.45
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 303,
+      "step_id_first": 303,
+      "step_id_last": 303,
+      "mono_ns_first": 2477171000937000,
+      "mono_ns_last": 2477171097392000,
+      "ts_first": 1795413576.912091,
+      "ts_last": 1795413577.008546,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.003
+        ],
+        "sampling_ms_samples": [
+          0.448
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 304,
+      "step_id_first": 304,
+      "step_id_last": 304,
+      "mono_ns_first": 2477171097396000,
+      "mono_ns_last": 2477171193897000,
+      "ts_first": 1795413577.00855,
+      "ts_last": 1795413577.105051,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.05
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 305,
+      "step_id_first": 305,
+      "step_id_last": 305,
+      "mono_ns_first": 2477171193901000,
+      "mono_ns_last": 2477171290441000,
+      "ts_first": 1795413577.105055,
+      "ts_last": 1795413577.201595,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.078
+        ],
+        "sampling_ms_samples": [
+          0.455
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 306,
+      "step_id_first": 306,
+      "step_id_last": 306,
+      "mono_ns_first": 2477171290445000,
+      "mono_ns_last": 2477171386932000,
+      "ts_first": 1795413577.201599,
+      "ts_last": 1795413577.298086,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.037
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 307,
+      "step_id_first": 307,
+      "step_id_last": 307,
+      "mono_ns_first": 2477171386936000,
+      "mono_ns_last": 2477171483618000,
+      "ts_first": 1795413577.29809,
+      "ts_last": 1795413577.394772,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.213
+        ],
+        "sampling_ms_samples": [
+          0.459
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 308,
+      "step_id_first": 308,
+      "step_id_last": 308,
+      "mono_ns_first": 2477171483622000,
+      "mono_ns_last": 2477171580092000,
+      "ts_first": 1795413577.3947759,
+      "ts_last": 1795413577.491246,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.019
+        ],
+        "sampling_ms_samples": [
+          0.449
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 309,
+      "step_id_first": 309,
+      "step_id_last": 309,
+      "mono_ns_first": 2477171580095000,
+      "mono_ns_last": 2477171676724000,
+      "ts_first": 1795413577.491249,
+      "ts_last": 1795413577.587878,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.181
+        ],
+        "sampling_ms_samples": [
+          0.445
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 310,
+      "step_id_first": 310,
+      "step_id_last": 310,
+      "mono_ns_first": 2477171676728000,
+      "mono_ns_last": 2477171773325000,
+      "ts_first": 1795413577.587882,
+      "ts_last": 1795413577.684479,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.152
+        ],
+        "sampling_ms_samples": [
+          0.441
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 311,
+      "step_id_first": 311,
+      "step_id_last": 311,
+      "mono_ns_first": 2477171773329000,
+      "mono_ns_last": 2477171869815000,
+      "ts_first": 1795413577.6844828,
+      "ts_last": 1795413577.780969,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.038
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 312,
+      "step_id_first": 312,
+      "step_id_last": 312,
+      "mono_ns_first": 2477171869819000,
+      "mono_ns_last": 2477171966569000,
+      "ts_first": 1795413577.780973,
+      "ts_last": 1795413577.877723,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.293
+        ],
+        "sampling_ms_samples": [
+          0.452
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 313,
+      "step_id_first": 313,
+      "step_id_last": 313,
+      "mono_ns_first": 2477171966572000,
+      "mono_ns_last": 2477172063181000,
+      "ts_first": 1795413577.8777258,
+      "ts_last": 1795413577.974335,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.167
+        ],
+        "sampling_ms_samples": [
+          0.438
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 314,
+      "step_id_first": 314,
+      "step_id_last": 314,
+      "mono_ns_first": 2477172063187000,
+      "mono_ns_last": 2477172159734000,
+      "ts_first": 1795413577.9743412,
+      "ts_last": 1795413578.070888,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.104
+        ],
+        "sampling_ms_samples": [
+          0.439
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 315,
+      "step_id_first": 315,
+      "step_id_last": 315,
+      "mono_ns_first": 2477172159737000,
+      "mono_ns_last": 2477172256279000,
+      "ts_first": 1795413578.0708911,
+      "ts_last": 1795413578.167433,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.101
+        ],
+        "sampling_ms_samples": [
+          0.437
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 316,
+      "step_id_first": 316,
+      "step_id_last": 316,
+      "mono_ns_first": 2477172256282000,
+      "mono_ns_last": 2477172352835000,
+      "ts_first": 1795413578.167436,
+      "ts_last": 1795413578.263989,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.104
+        ],
+        "sampling_ms_samples": [
+          0.442
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 317,
+      "step_id_first": 317,
+      "step_id_last": 317,
+      "mono_ns_first": 2477172352838000,
+      "mono_ns_last": 2477172450922000,
+      "ts_first": 1795413578.263992,
+      "ts_last": 1795413578.362076,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          97.619
+        ],
+        "sampling_ms_samples": [
+          0.458
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 318,
+      "step_id_first": 318,
+      "step_id_last": 318,
+      "mono_ns_first": 2477172450932000,
+      "mono_ns_last": 2477172547504000,
+      "ts_first": 1795413578.362086,
+      "ts_last": 1795413578.458658,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.107
+        ],
+        "sampling_ms_samples": [
+          0.461
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 319,
+      "step_id_first": 319,
+      "step_id_last": 319,
+      "mono_ns_first": 2477172547511000,
+      "mono_ns_last": 2477172644443000,
+      "ts_first": 1795413578.4586651,
+      "ts_last": 1795413578.555597,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.477
+        ],
+        "sampling_ms_samples": [
+          0.451
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 320,
+      "step_id_first": 320,
+      "step_id_last": 320,
+      "mono_ns_first": 2477172644448000,
+      "mono_ns_last": 2477172741170000,
+      "ts_first": 1795413578.555602,
+      "ts_last": 1795413578.652324,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.267
+        ],
+        "sampling_ms_samples": [
+          0.452
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 321,
+      "step_id_first": 321,
+      "step_id_last": 321,
+      "mono_ns_first": 2477172741174000,
+      "mono_ns_last": 2477172837848000,
+      "ts_first": 1795413578.652328,
+      "ts_last": 1795413578.749002,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.216
+        ],
+        "sampling_ms_samples": [
+          0.455
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 322,
+      "step_id_first": 322,
+      "step_id_last": 322,
+      "mono_ns_first": 2477172837852000,
+      "mono_ns_last": 2477172934500000,
+      "ts_first": 1795413578.749006,
+      "ts_last": 1795413578.845654,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.193
+        ],
+        "sampling_ms_samples": [
+          0.449
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 323,
+      "step_id_first": 323,
+      "step_id_last": 323,
+      "mono_ns_first": 2477172934503000,
+      "mono_ns_last": 2477173030789000,
+      "ts_first": 1795413578.8456569,
+      "ts_last": 1795413578.941943,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          95.819
+        ],
+        "sampling_ms_samples": [
+          0.463
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 324,
+      "step_id_first": 324,
+      "step_id_last": 324,
+      "mono_ns_first": 2477173030795000,
+      "mono_ns_last": 2477173129208000,
+      "ts_first": 1795413578.941949,
+      "ts_last": 1795413579.040362,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          97.945
+        ],
+        "sampling_ms_samples": [
+          0.462
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 325,
+      "step_id_first": 325,
+      "step_id_last": 325,
+      "mono_ns_first": 2477173129222000,
+      "mono_ns_last": 2477173225800000,
+      "ts_first": 1795413579.0403762,
+      "ts_last": 1795413579.136954,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.106
+        ],
+        "sampling_ms_samples": [
+          0.462
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 326,
+      "step_id_first": 326,
+      "step_id_last": 326,
+      "mono_ns_first": 2477173225816000,
+      "mono_ns_last": 2477173322380000,
+      "ts_first": 1795413579.13697,
+      "ts_last": 1795413579.233534,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.107
+        ],
+        "sampling_ms_samples": [
+          0.451
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 327,
+      "step_id_first": 327,
+      "step_id_last": 327,
+      "mono_ns_first": 2477173322388000,
+      "mono_ns_last": 2477173419047000,
+      "ts_first": 1795413579.233542,
+      "ts_last": 1795413579.330201,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.198
+        ],
+        "sampling_ms_samples": [
+          0.456
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 328,
+      "step_id_first": 328,
+      "step_id_last": 328,
+      "mono_ns_first": 2477173419053000,
+      "mono_ns_last": 2477173515715000,
+      "ts_first": 1795413579.3302069,
+      "ts_last": 1795413579.426869,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.212
+        ],
+        "sampling_ms_samples": [
+          0.45
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 329,
+      "step_id_first": 329,
+      "step_id_last": 329,
+      "mono_ns_first": 2477173515719000,
+      "mono_ns_last": 2477173612273000,
+      "ts_first": 1795413579.426873,
+      "ts_last": 1795413579.523427,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.104
+        ],
+        "sampling_ms_samples": [
+          0.446
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 330,
+      "step_id_first": 330,
+      "step_id_last": 330,
+      "mono_ns_first": 2477173612277000,
+      "mono_ns_last": 2477173708815000,
+      "ts_first": 1795413579.5234308,
+      "ts_last": 1795413579.619969,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.083
+        ],
+        "sampling_ms_samples": [
+          0.454
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 331,
+      "step_id_first": 331,
+      "step_id_last": 331,
+      "mono_ns_first": 2477173708819000,
+      "mono_ns_last": 2477173805428000,
+      "ts_first": 1795413579.619973,
+      "ts_last": 1795413579.716582,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.151
+        ],
+        "sampling_ms_samples": [
+          0.455
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 332,
+      "step_id_first": 332,
+      "step_id_last": 332,
+      "mono_ns_first": 2477173805431000,
+      "mono_ns_last": 2477173901966000,
+      "ts_first": 1795413579.716585,
+      "ts_last": 1795413579.81312,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.086
+        ],
+        "sampling_ms_samples": [
+          0.446
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 333,
+      "step_id_first": 333,
+      "step_id_last": 333,
+      "mono_ns_first": 2477173901969000,
+      "mono_ns_last": 2477173998624000,
+      "ts_first": 1795413579.8131232,
+      "ts_last": 1795413579.909778,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.209
+        ],
+        "sampling_ms_samples": [
+          0.442
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 334,
+      "step_id_first": 334,
+      "step_id_last": 334,
+      "mono_ns_first": 2477173998629000,
+      "mono_ns_last": 2477174095253000,
+      "ts_first": 1795413579.9097831,
+      "ts_last": 1795413580.006407,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.174
+        ],
+        "sampling_ms_samples": [
+          0.444
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 335,
+      "step_id_first": 335,
+      "step_id_last": 335,
+      "mono_ns_first": 2477174095258000,
+      "mono_ns_last": 2477174191894000,
+      "ts_first": 1795413580.006412,
+      "ts_last": 1795413580.103048,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.182
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 336,
+      "step_id_first": 336,
+      "step_id_last": 336,
+      "mono_ns_first": 2477174191897000,
+      "mono_ns_last": 2477174288426000,
+      "ts_first": 1795413580.103051,
+      "ts_last": 1795413580.19958,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.079
+        ],
+        "sampling_ms_samples": [
+          0.446
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 337,
+      "step_id_first": 337,
+      "step_id_last": 337,
+      "mono_ns_first": 2477174288429000,
+      "mono_ns_last": 2477174385015000,
+      "ts_first": 1795413580.199583,
+      "ts_last": 1795413580.296169,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.132
+        ],
+        "sampling_ms_samples": [
+          0.45
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 338,
+      "step_id_first": 338,
+      "step_id_last": 338,
+      "mono_ns_first": 2477174385021000,
+      "mono_ns_last": 2477174481663000,
+      "ts_first": 1795413580.296175,
+      "ts_last": 1795413580.392817,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.202
+        ],
+        "sampling_ms_samples": [
+          0.434
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 339,
+      "step_id_first": 339,
+      "step_id_last": 339,
+      "mono_ns_first": 2477174481669000,
+      "mono_ns_last": 2477174578243000,
+      "ts_first": 1795413580.392823,
+      "ts_last": 1795413580.489397,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.115
+        ],
+        "sampling_ms_samples": [
+          0.45
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 340,
+      "step_id_first": 340,
+      "step_id_last": 340,
+      "mono_ns_first": 2477174578247000,
+      "mono_ns_last": 2477174674922000,
+      "ts_first": 1795413580.489401,
+      "ts_last": 1795413580.586076,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.232
+        ],
+        "sampling_ms_samples": [
+          0.44
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 341,
+      "step_id_first": 341,
+      "step_id_last": 341,
+      "mono_ns_first": 2477174674926000,
+      "mono_ns_last": 2477174771569000,
+      "ts_first": 1795413580.58608,
+      "ts_last": 1795413580.682723,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.198
+        ],
+        "sampling_ms_samples": [
+          0.442
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 342,
+      "step_id_first": 342,
+      "step_id_last": 342,
+      "mono_ns_first": 2477174771572000,
+      "mono_ns_last": 2477174868323000,
+      "ts_first": 1795413580.682726,
+      "ts_last": 1795413580.779477,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.306
+        ],
+        "sampling_ms_samples": [
+          0.443
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 343,
+      "step_id_first": 343,
+      "step_id_last": 343,
+      "mono_ns_first": 2477174868327000,
+      "mono_ns_last": 2477174965085000,
+      "ts_first": 1795413580.7794812,
+      "ts_last": 1795413580.876239,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.311
+        ],
+        "sampling_ms_samples": [
+          0.444
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 344,
+      "step_id_first": 344,
+      "step_id_last": 344,
+      "mono_ns_first": 2477174965089000,
+      "mono_ns_last": 2477175061801000,
+      "ts_first": 1795413580.8762429,
+      "ts_last": 1795413580.972955,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.259
+        ],
+        "sampling_ms_samples": [
+          0.443
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 345,
+      "step_id_first": 345,
+      "step_id_last": 345,
+      "mono_ns_first": 2477175061804000,
+      "mono_ns_last": 2477175158405000,
+      "ts_first": 1795413580.972958,
+      "ts_last": 1795413581.069559,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.155
+        ],
+        "sampling_ms_samples": [
+          0.442
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 346,
+      "step_id_first": 346,
+      "step_id_last": 346,
+      "mono_ns_first": 2477175158408000,
+      "mono_ns_last": 2477175255014000,
+      "ts_first": 1795413581.069562,
+      "ts_last": 1795413581.166168,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.153
+        ],
+        "sampling_ms_samples": [
+          0.449
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 347,
+      "step_id_first": 347,
+      "step_id_last": 347,
+      "mono_ns_first": 2477175255020000,
+      "mono_ns_last": 2477175351675000,
+      "ts_first": 1795413581.1661742,
+      "ts_last": 1795413581.262829,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.204
+        ],
+        "sampling_ms_samples": [
+          0.448
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 348,
+      "step_id_first": 348,
+      "step_id_last": 348,
+      "mono_ns_first": 2477175351678000,
+      "mono_ns_last": 2477175448314000,
+      "ts_first": 1795413581.262832,
+      "ts_last": 1795413581.359468,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.184
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 349,
+      "step_id_first": 349,
+      "step_id_last": 349,
+      "mono_ns_first": 2477175448317000,
+      "mono_ns_last": 2477175544865000,
+      "ts_first": 1795413581.3594708,
+      "ts_last": 1795413581.456019,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.101
+        ],
+        "sampling_ms_samples": [
+          0.442
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 350,
+      "step_id_first": 350,
+      "step_id_last": 350,
+      "mono_ns_first": 2477175544868000,
+      "mono_ns_last": 2477175641752000,
+      "ts_first": 1795413581.456022,
+      "ts_last": 1795413581.552906,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.438
+        ],
+        "sampling_ms_samples": [
+          0.444
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 351,
+      "step_id_first": 351,
+      "step_id_last": 351,
+      "mono_ns_first": 2477175641758000,
+      "mono_ns_last": 2477175738351000,
+      "ts_first": 1795413581.552912,
+      "ts_last": 1795413581.649505,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.148
+        ],
+        "sampling_ms_samples": [
+          0.441
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 352,
+      "step_id_first": 352,
+      "step_id_last": 352,
+      "mono_ns_first": 2477175738354000,
+      "mono_ns_last": 2477175835070000,
+      "ts_first": 1795413581.649508,
+      "ts_last": 1795413581.746224,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.273
+        ],
+        "sampling_ms_samples": [
+          0.439
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 353,
+      "step_id_first": 353,
+      "step_id_last": 353,
+      "mono_ns_first": 2477175835076000,
+      "mono_ns_last": 2477175931866000,
+      "ts_first": 1795413581.74623,
+      "ts_last": 1795413581.84302,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.351
+        ],
+        "sampling_ms_samples": [
+          0.436
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 354,
+      "step_id_first": 354,
+      "step_id_last": 354,
+      "mono_ns_first": 2477175931870000,
+      "mono_ns_last": 2477176028210000,
+      "ts_first": 1795413581.843024,
+      "ts_last": 1795413581.939364,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          95.869
+        ],
+        "sampling_ms_samples": [
+          0.464
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 355,
+      "step_id_first": 355,
+      "step_id_last": 355,
+      "mono_ns_first": 2477176028214000,
+      "mono_ns_last": 2477176126634000,
+      "ts_first": 1795413581.939368,
+      "ts_last": 1795413582.037788,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          97.951
+        ],
+        "sampling_ms_samples": [
+          0.464
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 356,
+      "step_id_first": 356,
+      "step_id_last": 356,
+      "mono_ns_first": 2477176126645000,
+      "mono_ns_last": 2477176223236000,
+      "ts_first": 1795413582.0377991,
+      "ts_last": 1795413582.13439,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.12
+        ],
+        "sampling_ms_samples": [
+          0.465
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 357,
+      "step_id_first": 357,
+      "step_id_last": 357,
+      "mono_ns_first": 2477176223243000,
+      "mono_ns_last": 2477176319883000,
+      "ts_first": 1795413582.1343968,
+      "ts_last": 1795413582.231037,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.176
+        ],
+        "sampling_ms_samples": [
+          0.458
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 358,
+      "step_id_first": 358,
+      "step_id_last": 358,
+      "mono_ns_first": 2477176319890000,
+      "mono_ns_last": 2477176417328000,
+      "ts_first": 1795413582.2310438,
+      "ts_last": 1795413582.328482,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.981
+        ],
+        "sampling_ms_samples": [
+          0.456
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 359,
+      "step_id_first": 359,
+      "step_id_last": 359,
+      "mono_ns_first": 2477176417333000,
+      "mono_ns_last": 2477176515992000,
+      "ts_first": 1795413582.328487,
+      "ts_last": 1795413582.427146,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          98.211
+        ],
+        "sampling_ms_samples": [
+          0.446
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 360,
+      "step_id_first": 360,
+      "step_id_last": 360,
+      "mono_ns_first": 2477176515997000,
+      "mono_ns_last": 2477176613188000,
+      "ts_first": 1795413582.427151,
+      "ts_last": 1795413582.524342,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.734
+        ],
+        "sampling_ms_samples": [
+          0.454
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 361,
+      "step_id_first": 361,
+      "step_id_last": 361,
+      "mono_ns_first": 2477176613192000,
+      "mono_ns_last": 2477176709787000,
+      "ts_first": 1795413582.5243459,
+      "ts_last": 1795413582.620941,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.14
+        ],
+        "sampling_ms_samples": [
+          0.451
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 362,
+      "step_id_first": 362,
+      "step_id_last": 362,
+      "mono_ns_first": 2477176709791000,
+      "mono_ns_last": 2477176806353000,
+      "ts_first": 1795413582.620945,
+      "ts_last": 1795413582.717507,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.108
+        ],
+        "sampling_ms_samples": [
+          0.448
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 363,
+      "step_id_first": 363,
+      "step_id_last": 363,
+      "mono_ns_first": 2477176806356000,
+      "mono_ns_last": 2477176903002000,
+      "ts_first": 1795413582.71751,
+      "ts_last": 1795413582.814156,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.19
+        ],
+        "sampling_ms_samples": [
+          0.453
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 364,
+      "step_id_first": 364,
+      "step_id_last": 364,
+      "mono_ns_first": 2477176903005000,
+      "mono_ns_last": 2477176999573000,
+      "ts_first": 1795413582.814159,
+      "ts_last": 1795413582.910727,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.116
+        ],
+        "sampling_ms_samples": [
+          0.449
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 365,
+      "step_id_first": 365,
+      "step_id_last": 365,
+      "mono_ns_first": 2477176999576000,
+      "mono_ns_last": 2477177096091000,
+      "ts_first": 1795413582.9107301,
+      "ts_last": 1795413583.007245,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.072
+        ],
+        "sampling_ms_samples": [
+          0.441
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 366,
+      "step_id_first": 366,
+      "step_id_last": 366,
+      "mono_ns_first": 2477177096095000,
+      "mono_ns_last": 2477177192692000,
+      "ts_first": 1795413583.007249,
+      "ts_last": 1795413583.103846,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.158
+        ],
+        "sampling_ms_samples": [
+          0.439
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 367,
+      "step_id_first": 367,
+      "step_id_last": 367,
+      "mono_ns_first": 2477177192696000,
+      "mono_ns_last": 2477177289272000,
+      "ts_first": 1795413583.1038501,
+      "ts_last": 1795413583.200426,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.135
+        ],
+        "sampling_ms_samples": [
+          0.436
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 368,
+      "step_id_first": 368,
+      "step_id_last": 368,
+      "mono_ns_first": 2477177289275000,
+      "mono_ns_last": 2477177385688000,
+      "ts_first": 1795413583.2004292,
+      "ts_last": 1795413583.296842,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          95.965
+        ],
+        "sampling_ms_samples": [
+          0.443
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 369,
+      "step_id_first": 369,
+      "step_id_last": 369,
+      "mono_ns_first": 2477177385691000,
+      "mono_ns_last": 2477177483804000,
+      "ts_first": 1795413583.296845,
+      "ts_last": 1795413583.394958,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          97.644
+        ],
+        "sampling_ms_samples": [
+          0.463
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 370,
+      "step_id_first": 370,
+      "step_id_last": 370,
+      "mono_ns_first": 2477177483813000,
+      "mono_ns_last": 2477177580421000,
+      "ts_first": 1795413583.394967,
+      "ts_last": 1795413583.491575,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.142
+        ],
+        "sampling_ms_samples": [
+          0.462
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 371,
+      "step_id_first": 371,
+      "step_id_last": 371,
+      "mono_ns_first": 2477177580428000,
+      "mono_ns_last": 2477177677107000,
+      "ts_first": 1795413583.491582,
+      "ts_last": 1795413583.588261,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.214
+        ],
+        "sampling_ms_samples": [
+          0.459
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 372,
+      "step_id_first": 372,
+      "step_id_last": 372,
+      "mono_ns_first": 2477177677112000,
+      "mono_ns_last": 2477177773743000,
+      "ts_first": 1795413583.588266,
+      "ts_last": 1795413583.684897,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.166
+        ],
+        "sampling_ms_samples": [
+          0.458
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 373,
+      "step_id_first": 373,
+      "step_id_last": 373,
+      "mono_ns_first": 2477177773748000,
+      "mono_ns_last": 2477177870487000,
+      "ts_first": 1795413583.684902,
+      "ts_last": 1795413583.781641,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.264
+        ],
+        "sampling_ms_samples": [
+          0.463
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 374,
+      "step_id_first": 374,
+      "step_id_last": 374,
+      "mono_ns_first": 2477177870490000,
+      "mono_ns_last": 2477177967140000,
+      "ts_first": 1795413583.781644,
+      "ts_last": 1795413583.878294,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.183
+        ],
+        "sampling_ms_samples": [
+          0.456
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 375,
+      "step_id_first": 375,
+      "step_id_last": 375,
+      "mono_ns_first": 2477177967151000,
+      "mono_ns_last": 2477178063683000,
+      "ts_first": 1795413583.878305,
+      "ts_last": 1795413583.974837,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.072
+        ],
+        "sampling_ms_samples": [
+          0.457
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 376,
+      "step_id_first": 376,
+      "step_id_last": 376,
+      "mono_ns_first": 2477178063692000,
+      "mono_ns_last": 2477178160260000,
+      "ts_first": 1795413583.974846,
+      "ts_last": 1795413584.071414,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.115
+        ],
+        "sampling_ms_samples": [
+          0.449
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 377,
+      "step_id_first": 377,
+      "step_id_last": 377,
+      "mono_ns_first": 2477178160264000,
+      "mono_ns_last": 2477178256749000,
+      "ts_first": 1795413584.071418,
+      "ts_last": 1795413584.167903,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.035
+        ],
+        "sampling_ms_samples": [
+          0.448
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 378,
+      "step_id_first": 378,
+      "step_id_last": 378,
+      "mono_ns_first": 2477178256753000,
+      "mono_ns_last": 2477178353478000,
+      "ts_first": 1795413584.167907,
+      "ts_last": 1795413584.264632,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.278
+        ],
+        "sampling_ms_samples": [
+          0.442
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 379,
+      "step_id_first": 379,
+      "step_id_last": 379,
+      "mono_ns_first": 2477178353482000,
+      "mono_ns_last": 2477178450156000,
+      "ts_first": 1795413584.264636,
+      "ts_last": 1795413584.36131,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.217
+        ],
+        "sampling_ms_samples": [
+          0.452
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 380,
+      "step_id_first": 380,
+      "step_id_last": 380,
+      "mono_ns_first": 2477178450159000,
+      "mono_ns_last": 2477178546826000,
+      "ts_first": 1795413584.3613129,
+      "ts_last": 1795413584.45798,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.216
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 381,
+      "step_id_first": 381,
+      "step_id_last": 381,
+      "mono_ns_first": 2477178546830000,
+      "mono_ns_last": 2477178643723000,
+      "ts_first": 1795413584.457984,
+      "ts_last": 1795413584.554877,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.433
+        ],
+        "sampling_ms_samples": [
+          0.456
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 382,
+      "step_id_first": 382,
+      "step_id_last": 382,
+      "mono_ns_first": 2477178643726000,
+      "mono_ns_last": 2477178740340000,
+      "ts_first": 1795413584.5548801,
+      "ts_last": 1795413584.651494,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.162
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 383,
+      "step_id_first": 383,
+      "step_id_last": 383,
+      "mono_ns_first": 2477178740343000,
+      "mono_ns_last": 2477178836917000,
+      "ts_first": 1795413584.651497,
+      "ts_last": 1795413584.748071,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.125
+        ],
+        "sampling_ms_samples": [
+          0.445
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 384,
+      "step_id_first": 384,
+      "step_id_last": 384,
+      "mono_ns_first": 2477178836921000,
+      "mono_ns_last": 2477178933550000,
+      "ts_first": 1795413584.748075,
+      "ts_last": 1795413584.844704,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.179
+        ],
+        "sampling_ms_samples": [
+          0.449
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 385,
+      "step_id_first": 385,
+      "step_id_last": 385,
+      "mono_ns_first": 2477178933554000,
+      "mono_ns_last": 2477179029814000,
+      "ts_first": 1795413584.844708,
+      "ts_last": 1795413584.940968,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          95.799
+        ],
+        "sampling_ms_samples": [
+          0.456
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 386,
+      "step_id_first": 386,
+      "step_id_last": 386,
+      "mono_ns_first": 2477179029819000,
+      "mono_ns_last": 2477179128259000,
+      "ts_first": 1795413584.940973,
+      "ts_last": 1795413585.039413,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          97.97
+        ],
+        "sampling_ms_samples": [
+          0.463
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 387,
+      "step_id_first": 387,
+      "step_id_last": 387,
+      "mono_ns_first": 2477179128273000,
+      "mono_ns_last": 2477179224913000,
+      "ts_first": 1795413585.0394268,
+      "ts_last": 1795413585.136067,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.169
+        ],
+        "sampling_ms_samples": [
+          0.465
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 388,
+      "step_id_first": 388,
+      "step_id_last": 388,
+      "mono_ns_first": 2477179224922000,
+      "mono_ns_last": 2477179321485000,
+      "ts_first": 1795413585.136077,
+      "ts_last": 1795413585.23264,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.1
+        ],
+        "sampling_ms_samples": [
+          0.46
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 389,
+      "step_id_first": 389,
+      "step_id_last": 389,
+      "mono_ns_first": 2477179321492000,
+      "mono_ns_last": 2477179418281000,
+      "ts_first": 1795413585.2326462,
+      "ts_last": 1795413585.329435,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.316
+        ],
+        "sampling_ms_samples": [
+          0.469
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 390,
+      "step_id_first": 390,
+      "step_id_last": 390,
+      "mono_ns_first": 2477179418286000,
+      "mono_ns_last": 2477179514897000,
+      "ts_first": 1795413585.3294399,
+      "ts_last": 1795413585.426051,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.152
+        ],
+        "sampling_ms_samples": [
+          0.453
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 391,
+      "step_id_first": 391,
+      "step_id_last": 391,
+      "mono_ns_first": 2477179514901000,
+      "mono_ns_last": 2477179611477000,
+      "ts_first": 1795413585.426055,
+      "ts_last": 1795413585.522631,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.113
+        ],
+        "sampling_ms_samples": [
+          0.453
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 392,
+      "step_id_first": 392,
+      "step_id_last": 392,
+      "mono_ns_first": 2477179611480000,
+      "mono_ns_last": 2477179708095000,
+      "ts_first": 1795413585.522634,
+      "ts_last": 1795413585.619249,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.154
+        ],
+        "sampling_ms_samples": [
+          0.455
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 393,
+      "step_id_first": 393,
+      "step_id_last": 393,
+      "mono_ns_first": 2477179708099000,
+      "mono_ns_last": 2477179804676000,
+      "ts_first": 1795413585.6192532,
+      "ts_last": 1795413585.71583,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.123
+        ],
+        "sampling_ms_samples": [
+          0.449
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 394,
+      "step_id_first": 394,
+      "step_id_last": 394,
+      "mono_ns_first": 2477179804679000,
+      "mono_ns_last": 2477179901269000,
+      "ts_first": 1795413585.715833,
+      "ts_last": 1795413585.812423,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.132
+        ],
+        "sampling_ms_samples": [
+          0.454
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 395,
+      "step_id_first": 395,
+      "step_id_last": 395,
+      "mono_ns_first": 2477179901272000,
+      "mono_ns_last": 2477179997858000,
+      "ts_first": 1795413585.812426,
+      "ts_last": 1795413585.909012,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.123
+        ],
+        "sampling_ms_samples": [
+          0.457
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 396,
+      "step_id_first": 396,
+      "step_id_last": 396,
+      "mono_ns_first": 2477179997861000,
+      "mono_ns_last": 2477180094386000,
+      "ts_first": 1795413585.909015,
+      "ts_last": 1795413586.00554,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.075
+        ],
+        "sampling_ms_samples": [
+          0.447
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 397,
+      "step_id_first": 397,
+      "step_id_last": 397,
+      "mono_ns_first": 2477180094389000,
+      "mono_ns_last": 2477180190894000,
+      "ts_first": 1795413586.005543,
+      "ts_last": 1795413586.102048,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.048
+        ],
+        "sampling_ms_samples": [
+          0.453
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 398,
+      "step_id_first": 398,
+      "step_id_last": 398,
+      "mono_ns_first": 2477180190897000,
+      "mono_ns_last": 2477180287344000,
+      "ts_first": 1795413586.102051,
+      "ts_last": 1795413586.198498,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.01
+        ],
+        "sampling_ms_samples": [
+          0.433
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 399,
+      "step_id_first": 399,
+      "step_id_last": 399,
+      "mono_ns_first": 2477180287347000,
+      "mono_ns_last": 2477180383841000,
+      "ts_first": 1795413586.198501,
+      "ts_last": 1795413586.294995,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.045
+        ],
+        "sampling_ms_samples": [
+          0.445
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 400,
+      "step_id_first": 400,
+      "step_id_last": 400,
+      "mono_ns_first": 2477180383844000,
+      "mono_ns_last": 2477180480453000,
+      "ts_first": 1795413586.294998,
+      "ts_last": 1795413586.391607,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.161
+        ],
+        "sampling_ms_samples": [
+          0.444
+        ]
+      },
+      "finished": []
+    },
+    {
+      "t": "step",
+      "step_id": 401,
+      "step_id_first": 401,
+      "step_id_last": 401,
+      "mono_ns_first": 2477180480461000,
+      "mono_ns_last": 2477180576999000,
+      "ts_first": 1795413586.391615,
+      "ts_last": 1795413586.488153,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-277",
+          "task-278",
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 4,
+        "forward_ms_samples": [
+          96.027
+        ],
+        "sampling_ms_samples": [
+          0.462
+        ]
+      },
+      "finished": [
+        "task-277",
+        "task-278"
+      ]
+    },
+    {
+      "t": "step",
+      "step_id": 402,
+      "step_id_first": 402,
+      "step_id_last": 402,
+      "mono_ns_first": 2477180577003000,
+      "mono_ns_last": 2477180668203000,
+      "ts_first": 1795413586.4881568,
+      "ts_last": 1795413586.579357,
+      "prefills": [],
+      "decode": {
+        "reqs": [
+          "task-280",
+          "task-281"
+        ],
+        "tokens": 2,
+        "forward_ms_samples": [
+          90.958
+        ],
+        "sampling_ms_samples": [
+          0.216
+        ]
+      },
+      "finished": [
+        "task-280",
+        "task-281"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "t": "req",
+      "rid": "task-277",
+      "request_id": "task-277",
+      "ts": 1795413572.888543,
+      "timing": {
+        "tokenization_ms": 0.123,
+        "detokenize_ms": 0.047000000000000014
+      }
+    },
+    {
+      "t": "req",
+      "rid": "task-278",
+      "request_id": "task-278",
+      "ts": 1795413572.888566,
+      "timing": {
+        "tokenization_ms": 0.112,
+        "detokenize_ms": 0.016000000000000007
+      }
+    },
+    {
+      "t": "req",
+      "rid": "task-280",
+      "request_id": "task-280",
+      "ts": 1795413572.892484,
+      "timing": {
+        "tokenization_ms": 0.082,
+        "detokenize_ms": 0.017
+      }
+    },
+    {
+      "t": "req",
+      "rid": "task-281",
+      "request_id": "task-281",
+      "ts": 1795413572.892499,
+      "timing": {
+        "tokenization_ms": 0.086,
+        "detokenize_ms": 0.017000000000000008
+      }
+    }
+  ]
+}

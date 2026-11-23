@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "text": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *",
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "length"
+    }
+  ],
+  "created": 1795413267,
+  "model": "/Users/rentamac/models/ggml-org-Qwen3.5-4B-GGUF/Qwen3.5-4B-BF16.gguf",
+  "system_fingerprint": "b12648-44d50873b",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 512,
+    "total_tokens": 528,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-Fg01cYXpNDZHDVBw3HPAkxtY3zDlga1k",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 512,
+    "prompt_ms": 1217.223,
+    "prompt_per_token_ms": 2.377388671875,
+    "prompt_per_second": 420.62958061094804,
+    "predicted_n": 16,
+    "predicted_ms": 1233.074,
+    "predicted_per_token_ms": 82.20493333333334,
+    "predicted_per_second": 12.164720041132972
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "client": [
+    "python3",
+    "/home/sdp/hardik/score_main/arm/benchmark_data/mac_m4_vllm_e2e_exact_20261109/profile_exact_sweep.py",
+    "--base-url",
+    "http://127.0.0.1:18003",
+    "--mode",
+    "chat",
+    "--dataset",
+    "/home/sdp/hardik/score_main/arm/benchmark_data/mac_m4_vllm_e2e_exact_20261109/exact_prompts.jsonl",
+    "--prompt-lengths",
+    "128",
+    "512",
+    "1024",
+    "--batch-sizes",
+    "1",
+    "2",
+    "4",
+    "--model",
+    "/Users/rentamac/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "--max-completion-tokens",
+    "128",
+    "--output-csv",
+    "/home/sdp/hardik/score_main/arm/benchmark_data/mac_m4_llamacpp_server_20261123/kvu_r2/profile_sweep.csv",
+    "--trace-dir",
+    "/home/sdp/hardik/score_main/arm/benchmark_data/mac_m4_llamacpp_server_20261123/kvu_r2/traces",
+    "--timeout",
+    "1800",
+    "--save-outputs",
+    "--reset"
+  ],
+  "server_flags": [
+    "-fa",
+    "on",
+    "-ctxcp",
+    "0",
+    "-kvu"
+  ],
+  "metal_env": ""
+}
