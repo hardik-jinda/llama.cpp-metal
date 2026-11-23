@@ -5,6 +5,7 @@
 #include "server-cors-proxy.h"
 #include "server-stream.h"
 #include "server-tools.h"
+#include "server-trace.h"
 
 #include "arg.h"
 #include "build-info.h"
@@ -175,6 +176,27 @@ static void server_register_routes(server_http_context & ctx_http, server_routes
     ctx_http.get ("/health",                   ex_wrapper(routes.get_health)); // public endpoint (no API key check)
     ctx_http.get ("/v1/health",                ex_wrapper(routes.get_health)); // public endpoint (no API key check)
     ctx_http.get ("/metrics",                  ex_wrapper(routes.get_metrics));
+    {
+        // LLAMA_SERVER_TRACE_TIMING step trace, same endpoints as the vLLM-Metal metal_timing plugin
+        auto trace_json = [](const json & body) {
+            auto res = std::make_unique<server_http_res>();
+            res->data = body.dump();
+            return res;
+        };
+        ctx_http.get("/debug/trace", ex_wrapper([trace_json](const server_http_req &) {
+            const bool on = server_trace_get().enabled;
+            return trace_json({{"enabled", on}, {"step_samples", on}});
+        }));
+        ctx_http.get("/debug/scheduler_metrics", ex_wrapper([trace_json](const server_http_req &) {
+            return trace_json(server_trace_get().metrics());
+        }));
+        ctx_http.get("/debug/trace/steps", ex_wrapper([trace_json](const server_http_req & req) {
+            return trace_json(server_trace_get().steps_page(req));
+        }));
+        ctx_http.get("/debug/trace/requests", ex_wrapper([trace_json](const server_http_req & req) {
+            return trace_json(server_trace_get().requests_page(req));
+        }));
+    }
     ctx_http.get ("/props",                    ex_wrapper(routes.get_props));
     ctx_http.post("/props",                    ex_wrapper(routes.post_props));
     ctx_http.get ("/models",                   ex_wrapper(routes.get_models));

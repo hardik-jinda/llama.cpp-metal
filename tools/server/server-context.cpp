@@ -7,6 +7,7 @@
 #include "server-decision.h"
 #include "server-http.h"
 #include "server-task.h"
+#include "server-trace.h"
 #include "server-queue.h"
 #include "server-realtime.h"
 #include "server-schema.h"
@@ -1130,6 +1131,7 @@ private:
     int slots_n_diff = 0; // env: LLAMA_SERVER_SLOTS_N_DIFF
 
     int n_empty_consecutive = 0;
+    int64_t t_trace_sampl_us = 0; // sampling time of the current traced step
 
     std::unique_ptr<server_prompt_cache> prompt_cache;
 
@@ -3526,6 +3528,8 @@ private:
             if (all_idle) {
                 SRV_TRC("%s", "all slots are idle\n");
 
+                server_trace_get().n_running = 0;
+
                 metrics_flush_idle();
 
                 return; // skip further processing
@@ -3587,10 +3591,13 @@ private:
             llama_set_embeddings(ctx_tgt, slot_batched->need_embd());
         }
 
+        auto & trace = server_trace_get();
         int32_t off_next = 0;
         int32_t n_batch = llama_n_batch(ctx_tgt);
         for (int32_t off = 0; off < batch.size(); off = off_next) {
             const int32_t n_tokens = std::min(n_batch, batch.size() - off);
+            server_trace_step step;
+            step.t_start_us = ggml_time_us();
             try {
                 scoped_timer t(t_decode, n_decode);
                 // TODO @ngxson : maybe handle n_batch == 1 here instead of inside decode()
@@ -3600,6 +3607,10 @@ private:
 #ifdef DEBUG_TIMINGS
                 llama_synchronize(ctx_tgt);
 #endif
+                if (trace.enabled) {
+                    llama_synchronize(ctx_tgt); // decode() syncs only when the sub-batch has outputs
+                    step.t_fwd_end_us = ggml_time_us();
+                }
 
                 if (ok) {
                     // move the head of the batch forward with the number of tokens we just processed
@@ -3617,6 +3628,11 @@ private:
                 break; // stop any further processing
             }
 
+            if (trace.enabled) {
+                trace_classify(step, n_tokens, off);
+                t_trace_sampl_us = 0;
+            }
+
             try {
                 scoped_timer t(t_post_decode, n_post_decode);
                 post_decode(n_tokens, off);
@@ -3624,6 +3640,52 @@ private:
                 SRV_ERR("post_decode() failed: %s\n", e.what());
                 abort_all_slots("post_decode() failed: " + std::string(e.what()));
                 break; // stop any further processing
+            }
+
+            if (trace.enabled) {
+                std::vector<int> finished;
+                int n_running = 0;
+                for (int id : step.active_ids) {
+                    bool alive = false;
+                    for (auto & slot : slots) {
+                        alive |= slot.is_processing() && slot.task && slot.task->id == id;
+                    }
+                    if (!alive) {
+                        finished.push_back(id);
+                    }
+                }
+                for (auto & slot : slots) {
+                    n_running += slot.is_processing();
+                }
+                trace.n_running = n_running;
+                trace.record(step, ggml_time_us(), t_trace_sampl_us / 1000.0, finished);
+            }
+        }
+    }
+
+    // trace: which tasks prefill, finish their prompt or decode in the sub-batch [off, off + n_tokens)
+    void trace_classify(server_trace_step & step, int32_t n_tokens, int32_t off) {
+        std::vector<bool> prompt(slots.size()), gen(slots.size());
+        for (int32_t i = off; i < off + n_tokens; i++) {
+            const auto & tok = batch.tokens[i];
+            if (tok.id_slot >= 0 && tok.id_slot < (int32_t) slots.size()) {
+                (tok.is_prompt ? prompt : gen)[tok.id_slot] = true;
+            }
+        }
+        for (auto & slot : slots) {
+            if (!slot.is_processing() || !slot.task) {
+                continue;
+            }
+            const int id = slot.task->id;
+            step.active_ids.push_back(id);
+            const bool last_in_view = slot.i_batch >= off && slot.i_batch < off + n_tokens;
+            if (prompt[slot.id]) {
+                step.prefill_ids.push_back(id);
+                if (slot.state == SLOT_STATE_DONE_PROMPT && last_in_view) {
+                    step.done_ids.push_back(id);
+                }
+            } else if (gen[slot.id] && slot.state == SLOT_STATE_GENERATING && last_in_view) {
+                step.decode_ids.push_back(id);
             }
         }
     }
@@ -4822,7 +4884,9 @@ private:
             llama_token id;
             {
                 scoped_timer timer(t_sampl, n_sampl);
+                const int64_t t_trace = ggml_time_us();
                 id = common_sampler_sample(slot.smpl.get(), slot.ctx_tgt, tok_idx);
+                t_trace_sampl_us += ggml_time_us() - t_trace;
             }
 
             slot.i_batch = -1;
@@ -4844,7 +4908,11 @@ private:
 
             completion_token_output result;
             result.tok          = id;
+            const int64_t t_detok = ggml_time_us();
             result.text_to_send = common_token_to_piece(slot.ctx_tgt, result.tok, accept_special_token(slot, result.tok));
+            if (server_trace_get().enabled) {
+                server_trace_get().add_request_ms(slot.task->id, "detokenize_ms", (ggml_time_us() - t_detok) / 1000.0);
+            }
             result.prob         = 1.0f; // TODO: set it here instead of doing inside populate_token_probs
 
             if (slot.task->params.sampling.n_probs > 0) {
@@ -5307,6 +5375,7 @@ std::unique_ptr<server_res_generator> server_routes::handle_completions_impl(
 
         // process prompt
         std::vector<server_tokens> inputs;
+        const int64_t t_tokenize = ggml_time_us();
 
         if (res_type != TASK_RESPONSE_TYPE_NONE && ctx_server.mctx != nullptr) {
             // This is the case used by OAI compatible chat path with MTMD. TODO It can be moved to the path below.
@@ -5349,6 +5418,13 @@ std::unique_ptr<server_res_generator> server_routes::handle_completions_impl(
             }
 
             tasks.push_back(std::move(task));
+        }
+
+        if (server_trace_get().enabled) {
+            const double ms = (ggml_time_us() - t_tokenize) / 1000.0;
+            for (const auto & task : tasks) {
+                server_trace_get().add_request_ms(task.id, "tokenization_ms", ms);
+            }
         }
 
         rd.post_tasks(std::move(tasks), chat_session);
